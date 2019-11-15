@@ -1,6 +1,6 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
-const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin")
+const path = require("path")
 
 module.exports = {
   entry: {
@@ -23,13 +23,15 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    stats: "errors-only"
+    stats: "errors-only",
+    disableHostCheck: true
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: "withContext",
       hash: true,
-      template: "./src/index.html" // Load a custom template (ejs by default see the FAQ for details)
+      // Load a custom template (ejs by default see the FAQ for details)
+      template: "./src/index.html"
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: "async"
@@ -48,4 +50,4 @@ module.exports = {
       }
     }
   }
-};
+}
